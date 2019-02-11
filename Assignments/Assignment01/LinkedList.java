@@ -1,7 +1,7 @@
 
 public class LinkedList 
 {
-
+	
 	Node head; //refers to the first node
 	
 	//want to assign this data to a node
@@ -66,6 +66,13 @@ public class LinkedList
 		}
 	}
 	
+	public Node delete() {
+		Node node;
+		node = head;
+		head = head.next;
+		return node;
+	}
+	
 	//not really deleting but changing the reference value for the
 	//prior node
 	public void deleteAt(int index) 
@@ -106,9 +113,5 @@ public class LinkedList
 		return(head == null);
 	}
 	
-	//public void TraverseToLastNode() {
-		
-		
-		
-	//}
+	
 }

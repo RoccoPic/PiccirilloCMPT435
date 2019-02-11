@@ -8,15 +8,30 @@ public class Runner {
 		houseMates.append("Rocco");
 		houseMates.append("Dave");
 		houseMates.append("Kyle");
-		houseMates.append("Alex");
-		houseMates.append("Josh");
-		houseMates.insertAtStart("Brenden");
-		
-		houseMates.insertAt(2, "Zach");
-		
+		houseMates.insertAtStart("Josh");
+		houseMates.insertAt(2, "Alex");
 		houseMates.deleteAt(3);
 		
-		
+		houseMates.delete();
 		//houseMates.show();
+
+		
+	
+		Stack nums = new Stack();
+		
+		nums.push("Rocco");
+		nums.push("Todd");
+		nums.push("Matt");
+		nums.pop();
+		nums.display();
+		
+	Queue q = new Queue();
+		
+		q.enQueue("Rocco");
+		q.enQueue("James");
+		q.enQueue("Piccirillo");
+		q.deQueue();
+		//System.out.println("Size " + q.getSize());
+		//q.show();
 	}
 }
