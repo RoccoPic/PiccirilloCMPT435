@@ -6,7 +6,7 @@ public class Queue {
 	Node head;
 	Node tail;
 	
-	public void enQueue(String data)
+	public void enQueue(char data)
 	{
 		queue.append(data);
 		size = size +1;
@@ -34,7 +34,7 @@ public class Queue {
 	}
 	public void peek()
 	{
-		
+		//
 	}
 	
 	public void show()

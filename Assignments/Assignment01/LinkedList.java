@@ -6,7 +6,7 @@ public class LinkedList
 	
 	//want to assign this data to a node
 	//gets added at the end of the list
-	public void append(String data) 
+	public void append(char data) 
 	{
 		//creating a new node everytime you insert
 		Node node = new Node();
@@ -32,7 +32,7 @@ public class LinkedList
 		}
 	}
 	
-	public void insertAtStart(String data) 
+	public void insertAtStart(char data) 
 	{
 		Node node = new Node();
 		node.data = data;
@@ -42,7 +42,7 @@ public class LinkedList
 		
 	}
 	//this is being made so we can insert at any location
-	public void insertAt(int index, String data) 
+	public void insertAt(int index, char data) 
 	{
 		
 		Node node = new Node();

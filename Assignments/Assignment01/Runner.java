@@ -1,37 +1,50 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Runner {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner scanner = new Scanner(new File("magicitems"));
+		ArrayList<String> wordList = new ArrayList<String>();
 		
-		LinkedList houseMates = new LinkedList();
+		while(scanner.hasNextLine()) 
+		{
+			wordList.add(scanner.nextLine());
+		}
 		
-		houseMates.append("Rocco");
-		houseMates.append("Dave");
-		houseMates.append("Kyle");
-		houseMates.insertAtStart("Josh");
-		houseMates.insertAt(2, "Alex");
-		houseMates.deleteAt(3);
+		//wordList.get(1).toCharArray();
+		Stack stack = new Stack();
+		Queue queue = new Queue();
 		
-		houseMates.delete();
-		//houseMates.show();
-
+		for (int i = 0; i < wordList.size(); i++){
+		 
+		     for(int j = 0; j < wordList.get(i).length(); j++)
+		     {
+		    	 
+		    	 stack.push(wordList.get(i).charAt(j));
+		    	 queue.enQueue(wordList.get(i).charAt(j));
+		    	
+		    	 queue.show();
+		    	//System.out.println(wordList.get(i).charAt(j));
+		     }
+		 }
 		
+		//for (int i = 0; i < wordList.size(); i++) {
+		//     System.out.println(wordList.get(i) + " ");
+		// }
+		
+		
+		
+		/*for(int i = 0; i < wordList.size(); i++)
+		{
+			
+		}*/
 	
-		Stack nums = new Stack();
 		
-		nums.push("Rocco");
-		nums.push("Todd");
-		nums.push("Matt");
-		nums.pop();
-		nums.display();
+
+	
 		
-	Queue q = new Queue();
-		
-		q.enQueue("Rocco");
-		q.enQueue("James");
-		q.enQueue("Piccirillo");
-		q.deQueue();
-		//System.out.println("Size " + q.getSize());
-		//q.show();
 	}
 }

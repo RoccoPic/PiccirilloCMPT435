@@ -6,38 +6,29 @@ public class Stack
 	LinkedList list = new LinkedList();
 
 	
-	public void push(String x)
+	public void push(char c)
 	{
 		
-		Node n = new Node();
+		/*Node n = new Node();
 		n.next = list.head;
 		list.head = n;
-		n.data = x;
+		n.data = c;*/
+		list.insertAtStart(c);
 		
 	}
 	
-	public String pop() 
+	public void pop() 
 	{
-		
-		String val = head.data;
-		head = head.next;
-		return val;
-		
-			//list.delete();
+			list.delete();
 	}
 	public void display() 
 	{
-		/*Node node = head;
-		
-		while(node.next != null)
-		{
-			System.out.println(node.data);
-			node = node.next;
-		}
-		System.out.print(node.data);*/
 		
 		list.show();
 	}
 	
-	
+	public boolean isEmpty()
+	{
+		return list.isEmpty();
+	}
 }
