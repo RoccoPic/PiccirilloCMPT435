@@ -113,5 +113,11 @@ public class LinkedList
 		return(head == null);
 	}
 	
-	
+	public Node peek() {
+		Node node;
+		node = head;
+		//head = head.next;
+		System.out.print(node.data);
+		return head;
+	}
 }

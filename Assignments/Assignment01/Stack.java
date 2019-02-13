@@ -1,4 +1,3 @@
-
 public class Stack 
 {
 	public Node head;
@@ -6,20 +5,27 @@ public class Stack
 	LinkedList list = new LinkedList();
 
 	
-	public void push(char c)
+	public void push(char data)
 	{
-		
-		/*Node n = new Node();
-		n.next = list.head;
-		list.head = n;
-		n.data = c;*/
-		list.insertAtStart(c);
-		
-	}
 	
-	public void pop() 
+			Node node = new Node();
+			node.data = data;
+			node.next = null;
+			node.next = head;
+			head = node;
+			
+		}
+		
+	
+	
+	public Node pop() 
 	{
-			list.delete();
+		Node node;
+		node = head;
+		head = head.next;
+		return node;
+		
+		
 	}
 	public void display() 
 	{
@@ -30,5 +36,11 @@ public class Stack
 	public boolean isEmpty()
 	{
 		return list.isEmpty();
+	}
+	
+	public Node peek()
+	{
+		return list.peek();
+		
 	}
 }

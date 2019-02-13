@@ -8,18 +8,33 @@ public class Queue {
 	
 	public void enQueue(char data)
 	{
-		queue.append(data);
-		size = size +1;
+		
+		Node node = new Node();
+		node.data  = data;
+		node.next = null;
+		
+		if(head == null) 
+		{
+			head = node;
+			
+		} else 
+		{
+			Node n = head;
+			while(n.next != null)
+			{
+				n = n.next;
+			}
+			n.next = node;
+		}
+		
 	}
 	
-	public void deQueue()
+	public Node deQueue()
 	{
-		//Node data = head;
-		//head = head.next;
-		//size = size -1;
-		queue.delete();
-		size = size -1;
-	
+		Node node;
+		node = head;
+		head = head.next;
+		return node;
 	}
 	
 	
@@ -32,13 +47,15 @@ public class Queue {
 	{
 		return getSize() == 0;
 	}
-	public void peek()
-	{
-		//
-	}
+	
 	
 	public void show()
 	{
 		queue.show();
+	}
+	
+	public Node peek()
+	{
+		return queue.peek();
 	}
 }
