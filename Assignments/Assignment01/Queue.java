@@ -1,11 +1,12 @@
+//Assignment01
+//Rocco Piccirillo
+//Queue
 
 public class Queue {
 
-	LinkedList queue = new LinkedList();
-	public int size;
 	Node head;
-	Node tail;
 	
+	//adds to the tail of the queue
 	public void enQueue(char data)
 	{
 		
@@ -29,6 +30,7 @@ public class Queue {
 		
 	}
 	
+	//removes from the front of the queue
 	public Node deQueue()
 	{
 		Node node;
@@ -37,25 +39,25 @@ public class Queue {
 		return node;
 	}
 	
-	
-	public int getSize()
-	{
-		return size;
-	}
-	
-	public boolean isEmpty()
-	{
-		return getSize() == 0;
-	}
-	
-	
+	//prints out all of the values of the queue
 	public void show()
 	{
-		queue.show();
+		Node node = head;
+		
+		while(node.next != null)
+		{
+			System.out.println(node.data);
+			node = node.next;
+		}
+		System.out.print(node.data);
 	}
 	
+	//prints out the head node 
 	public Node peek()
 	{
-		return queue.peek();
+		Node node;
+		node = head;
+		System.out.print(node.data);
+		return head;
 	}
 }

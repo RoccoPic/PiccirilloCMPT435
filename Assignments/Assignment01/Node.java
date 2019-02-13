@@ -1,3 +1,6 @@
+//Assignment01
+//Rocco Piccirillo
+//Node
 
 public class Node {
 	

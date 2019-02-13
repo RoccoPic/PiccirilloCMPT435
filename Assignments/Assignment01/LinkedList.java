@@ -1,3 +1,6 @@
+//Assignment01
+//Rocco Piccirillo
+//LinkedList
 
 public class LinkedList 
 {
@@ -16,7 +19,6 @@ public class LinkedList
 		node.next = null;
 		
 		//if we are inserting our first object
-		
 		if(head == null) 
 		{
 			head = node;
@@ -32,6 +34,7 @@ public class LinkedList
 		}
 	}
 	
+	//this is premade for enQueue
 	public void insertAtStart(char data) 
 	{
 		Node node = new Node();
@@ -41,61 +44,16 @@ public class LinkedList
 		head = node;
 		
 	}
-	//this is being made so we can insert at any location
-	public void insertAt(int index, char data) 
+	//this is premade for my pop/deQueue
+	//the head value is being replaced with the next value
+	public Node delete() 
 	{
-		
-		Node node = new Node();
-		node.data = data;
-		node.next = null;
-		
-		//if we want to insert at the start this works as well
-		if(index == 0)
-		{
-			insertAtStart(data);
-		}
-		else 
-		{
-		Node n = head;
-		for(int i = 0; i < index; i++)
-		{
-			n = n.next;
-		}
-		node.next = n.next;
-		n.next = node;
-		}
-	}
-	
-	public Node delete() {
 		Node node;
 		node = head;
 		head = head.next;
 		return node;
 	}
-	
-	//not really deleting but changing the reference value for the
-	//prior node
-	public void deleteAt(int index) 
-	{
-		if(index == 0) 
-		{
-			head = head.next;
-		} else
-		{
-			Node n = head;
-			Node n1 = null;
-			for(int i = 0; i < index; i++)
-			{
-				n = n.next;
-			}
-			n1 = n.next;
-			n.next = n1.next;
-			//shows what we are doing
-			//System.out.println("n1 " + n1.data);
-			//now makes it eligible for garbage collection
-			n1 = null;
-		}
-	}
+	//prints out all of the values 
 	public void show() 
 	{
 		Node node = head;
@@ -108,16 +66,5 @@ public class LinkedList
 		System.out.print(node.data);
 	}
 	
-	public boolean isEmpty()
-	{
-		return(head == null);
-	}
 	
-	public Node peek() {
-		Node node;
-		node = head;
-		//head = head.next;
-		System.out.print(node.data);
-		return head;
-	}
 }
