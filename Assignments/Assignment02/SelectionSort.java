@@ -43,8 +43,8 @@ public class SelectionSort {
 				//compare to returns a positive num or negative num
 				//if j is less than smallPos, a negative number prints
 				//if j is greater than smallPos, a positive number prints
-				//so if the result is positive, it is greater than 0 so we swap
-				if(A.get(j).compareTo(A.get(smallPos)) > 0)
+				//so if the result is negative, it is less than 0 so we swap
+				if(A.get(j).compareTo(A.get(smallPos)) < 0)
 				{
 					//the small position gets swapped with j
 					smallPos = j;
