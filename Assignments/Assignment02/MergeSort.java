@@ -55,6 +55,7 @@ public class MergeSort {
 		for(int i = 0; i < midpoint; i++)
 		{
 			left.set(i, array.get(i));
+			//left.add(array.get(i));
 		}
 		
 		//this will populate the right array
