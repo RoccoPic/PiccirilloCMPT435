@@ -91,12 +91,8 @@ public class LinearSearch
 		
 	}
 
-	
-			public static ArrayList<String> sort(ArrayList<String> A)
+		public static ArrayList<String> sort(ArrayList<String> A)
 			{
-				//created an int to store number of swaps
-				int numSwap = 0;
-				
 				//loops over the arrayList
 				for(int i = 1; i < A.size(); i++)
 				{
@@ -115,8 +111,6 @@ public class LinearSearch
 						A.set(j+1, A.get(j));
 						j--;
 						
-						//increments the swap count
-						numSwap++;
 					}
 					//so since we changed, the key now moves to the next string
 					A.set(j+1, key);
