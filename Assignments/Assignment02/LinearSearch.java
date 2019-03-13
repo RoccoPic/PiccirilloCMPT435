@@ -31,12 +31,12 @@ public class LinearSearch
 			{
 				//a random Index of wordList will be selected
 			    int randIndex = (int) (Math.random()*(wordList.size()-1));
-			    //if 
+			     
 			    if (randList.indexOf(randIndex) == -1) 
 			    {
 			    	//the randList adds the random indexed number to the List
 			        randList.add(wordList.get(randIndex));
-			    	//}
+			    	
 			    }
 			}
 	
@@ -65,6 +65,7 @@ public class LinearSearch
 		//current selected string from randList
 		if(wordList.get(pos).equals(randList.get(index)))
 			{
+				pos++;
 				//once found the position or number of comparisons will be added
 				comparisons.add(pos);
 				//this is so we can keep track of what word is being searched for

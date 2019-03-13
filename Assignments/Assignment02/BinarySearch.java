@@ -96,6 +96,7 @@ public class BinarySearch
 				//if the arrays string equals our target string
 				else if(A.get(midpoint).equals(target))
 				{
+					midpoint++;
 					//we print out the number of comparisons it took to be found
 					System.out.println((midpoint) + " comparisons");
 					compare.add(midpoint);

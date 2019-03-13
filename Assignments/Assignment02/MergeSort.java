@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.function.UnaryOperator;
 
 public class MergeSort {
 	public static void main(String[] args) throws FileNotFoundException 
@@ -17,112 +18,99 @@ public class MergeSort {
 				wordList.add(scanner.nextLine());
 			}
 			
+			//sets all strings in wordList to upperCase
+			UnaryOperator<String> upper = (x) -> x.toUpperCase();
+			wordList.replaceAll(upper);
+			
 			wordList = mergeSort(wordList);
 			printArray(wordList);
 }
 	
-	public static ArrayList<String> mergeSort(ArrayList<String> array)
+	public static ArrayList<String> mergeSort(ArrayList<String> A)
 	{
-		// Recursive control 'if' statement.
-				if(array.size() <= 1) {
-					
-					return array;
-					
-				}
-	
-		//setting a mid point for the magicItems List
-		int midpoint = array.size() / 2;
-		
-		//Declaring left and right arrays
-		ArrayList<String> left = new ArrayList<String>(midpoint);
-		ArrayList<String> right; 
-		
-		//if the array size is an even number
-		//which we know it is
-		if(array.size() % 2 == 0)
+		if(A.size() <= 1)
 		{
-			
-			right = new ArrayList<String>(midpoint);
-		 
+			return A;
+		}
+		
+		int midpoint = A.size() / 2;
+		ArrayList<String> left = new ArrayList<String>(midpoint);
+		ArrayList<String> right;
+		
+		if(A.size() % 2 == 0)
+		{
+			right = new ArrayList<String>();
 		} else
 		{
-			
 			right = new ArrayList<String>(midpoint + 1);
-			
 		}
+		ArrayList<String> result = new ArrayList<String>(A.size());
 		
-		//this will populate the left array
 		for(int i = 0; i < midpoint; i++)
 		{
-			left.set(i, array.get(i));
-			//left.add(array.get(i));
+			left.add(A.get(i));
+			//left.set(i, A.get(i));
 		}
-		
-		//this will populate the right array
-		for(int j = 0; j < right.size(); j++)
+		int x = 0;
+		for(int j = midpoint; j < A.size(); j++)
 		{
-			right.set(j, array.get(midpoint + j));
+			right.add((A.get(j)));
+			/*if(x < right.size())
+			{
+			right.set(x, A.get(j));
+			x++;
+			}*/
 		}
 		
-		ArrayList<String> result = new ArrayList<String>(array.size());
-		
-		//recursive call for both the left and right arrays
 		left = mergeSort(left);
 		right = mergeSort(right);
 		
-		//merges the left and right array together, sorted
 		result = merge(left, right);
 		
-		//returns the sorted and merged array
 		return result;
 	}
 	
-	//merges the left and right arrays in an ascending order
-	private static ArrayList<String> merge(ArrayList<String> left, ArrayList<String> right)
+	public static ArrayList<String> merge(ArrayList<String> left, ArrayList<String> right)
 	{
-		//merges the left and right array
-		ArrayList<String> result = new ArrayList<String>(left.size() + right.size());
+		int lengthResult = left.size() + right.size();
+		ArrayList<String> result = new ArrayList<String>(lengthResult);
+		int indexL = 0;
+		int indexR = 0;
+		int indexRes = 0;
 		
-		//sets an initialization point for the left and right length
-		int leftPointer, rightPointer, resultPointer;
-		leftPointer = rightPointer = resultPointer = 0;
-		
-		//while the left and right array have elements
-		while(leftPointer < left.size() || rightPointer < right.size())
+		while(indexL < left.size() || indexR < right.size())
 		{
-
-			//checking if the left and right array both have elements
-			if(leftPointer < left.size() && rightPointer < right.size())
+			if(indexL < left.size() && indexR < right.size())
 			{
-				//if the left string is lower than the right string
-				if(left.get(leftPointer).compareTo(right.get(rightPointer)) < 0)
+				if(left.get(indexL).compareTo(right.get(indexR)) < 0)
+						{
+							result.add(left.get(indexL));
+							//result.set(indexRes, left.get(indexL));
+							indexL++;
+							indexRes++;
+						}
+				else 
 				{
-					
-					result.set(resultPointer++, left.get(leftPointer++));
-				} else 
-				{
-					
-					result.set(resultPointer++, right.get(rightPointer++));
-					
+					result.add(right.get(indexR));
+					//result.set(indexRes, right.get(indexR));
+					indexR++;
+					indexRes++;
 				}
 			}
-			
-			//if there are only elements in the left array, then you 
-			//take the elements in the left array and you increment
-			//it and the result array
-			else if(leftPointer < left.size())
+			else if (indexL < left.size())
 			{
-				result.set(resultPointer++, left.get(leftPointer++));
-			}
-			else if(rightPointer < right.size())
+				result.add(left.get(indexL));
+				//result.set(indexRes, left.get(indexL));
+				indexL++;
+				indexRes++;
+			} else if (indexR < right.size())
 			{
-				
-					result.set(resultPointer++, right.get(rightPointer++));
-				
+				result.add(right.get(indexR));
+				//result.set(indexRes, right.get(indexR));
+				indexR++;
+				indexRes++;
 			}
-			
 		}
-		
 		return result;
 	}
 	
