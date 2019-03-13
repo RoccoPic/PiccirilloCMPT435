@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.function.UnaryOperator;
 
 public class SelectionSort {
 
@@ -17,7 +18,10 @@ public class SelectionSort {
 			{
 				wordList.add(scanner.nextLine());
 			}
-
+			
+		//sets all strings in wordList to upperCase
+		UnaryOperator<String> upper = (x) -> x.toUpperCase();
+		wordList.replaceAll(upper);
 			
 		sort(wordList);
 		printArray(wordList);

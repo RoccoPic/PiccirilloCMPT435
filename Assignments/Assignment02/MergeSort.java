@@ -28,88 +28,117 @@ public class MergeSort {
 	
 	public static ArrayList<String> mergeSort(ArrayList<String> A)
 	{
+		//if the size of the given array is less than 1
+		//we just return 
 		if(A.size() <= 1)
 		{
 			return A;
 		}
 		
+		//first we get the midpoint of the array
 		int midpoint = A.size() / 2;
-		ArrayList<String> left = new ArrayList<String>(midpoint);
-		ArrayList<String> right;
+		//creating a subarray called left or the left half
+		ArrayList<String> left = new ArrayList<String>();
+		//and another sub array for the rightmost half
+		ArrayList<String> right = new ArrayList<String>();
+		//the last array which will be the product of
+		//the merged left and right array
+		ArrayList<String> result = new ArrayList<String>();
 		
-		if(A.size() % 2 == 0)
-		{
-			right = new ArrayList<String>();
-		} else
-		{
-			right = new ArrayList<String>(midpoint + 1);
-		}
-		ArrayList<String> result = new ArrayList<String>(A.size());
-		
+		//we are going to traverse from 0 to midpoint
+		//and add until we reach there
 		for(int i = 0; i < midpoint; i++)
 		{
-			left.add(A.get(i));
-			//left.set(i, A.get(i));
+			left.add(A.get(i));	
 		}
-		int x = 0;
+		
+		//we are going to start at midpoint
+		//and add until we reach the end of the arrayList
 		for(int j = midpoint; j < A.size(); j++)
 		{
 			right.add((A.get(j)));
-			/*if(x < right.size())
-			{
-			right.set(x, A.get(j));
-			x++;
-			}*/
 		}
 		
+		//we are going to call the method again to 
+		//split even further until reduced to multiple
+		//arrays of 1 and 1 and 1
+		//the right is going through the same thing
 		left = mergeSort(left);
 		right = mergeSort(right);
 		
+		//once finished divided into singled out elements
+		//we are going to merge
 		result = merge(left, right);
 		
+		//System.out.println(numSwap + " number of comparisons.");
 		return result;
 	}
 	
 	public static ArrayList<String> merge(ArrayList<String> left, ArrayList<String> right)
 	{
-		int lengthResult = left.size() + right.size();
-		ArrayList<String> result = new ArrayList<String>(lengthResult);
+		//created an int to store number of swaps
+		int numSwap = 0;
+		//this is the merged arrayList containing the elements
+		//of both the arrays
+		ArrayList<String> result = new ArrayList<String>();
+		//created indexes for both to start at
 		int indexL = 0;
 		int indexR = 0;
-		int indexRes = 0;
 		
+		//while elements are still in the left or in the right
 		while(indexL < left.size() || indexR < right.size())
 		{
+			//if the left AND the right still have elements
+			//they need to be merged in the right order
 			if(indexL < left.size() && indexR < right.size())
 			{
+				//depending on which is larger we need to know
+				//which to add first
+				//if the left is smaller than the right
 				if(left.get(indexL).compareTo(right.get(indexR)) < 0)
 						{
+							numSwap++;
+							//we add left first if it is smaller
 							result.add(left.get(indexL));
-							//result.set(indexRes, left.get(indexL));
-							indexL++;
-							indexRes++;
+							//we need to also update the index 
+							indexL++;	
 						}
-				else 
+				//if the right is bigger, we add the right after
+				else //if (right.get(indexR).compareTo(left.get(indexL)) > 0)	
 				{
+					numSwap++;
 					result.add(right.get(indexR));
-					//result.set(indexRes, right.get(indexR));
 					indexR++;
-					indexRes++;
 				}
 			}
+			//if there are still elements in the left
+			//but not the right
 			else if (indexL < left.size())
 			{
+				numSwap++;
 				result.add(left.get(indexL));
-				//result.set(indexRes, left.get(indexL));
 				indexL++;
-				indexRes++;
+			//or, if the left is the empty but the right isn't
+			//the right needs to be added
 			} else if (indexR < right.size())
 			{
+				numSwap++;
 				result.add(right.get(indexR));
-				//result.set(indexRes, right.get(indexR));
-				indexR++;
-				indexRes++;
+				indexR++;	
 			}
+		}
+		
+		ArrayList<Integer> comparisons = new ArrayList<Integer>();
+		comparisons.add(numSwap);
+		if(result.size() == 666)
+		{
+			int sum = 0;
+			for (int i = 0; i < comparisons.size(); i++)
+			{
+				
+	            sum += comparisons.get(i);
+			}
+			System.out.print(sum);
 		}
 		return result;
 	}

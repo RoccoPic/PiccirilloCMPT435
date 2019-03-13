@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.function.UnaryOperator;
 public class QuickSort 
 {
 	public static void main(String[] args) throws FileNotFoundException 
@@ -16,19 +17,27 @@ public class QuickSort
 			{
 				wordList.add(scanner.nextLine());
 			}
+			//sets all strings in wordList to upperCase
+			UnaryOperator<String> upper = (x) -> x.toUpperCase();
+			wordList.replaceAll(upper);
 			
 			QuickSort(wordList, 0, wordList.size() - 1);
 			printArray(wordList);
-}
+	}
+	
 	private static void QuickSort(ArrayList<String> array, int left, int right)
 	{
 		int index = partition(array, left, right);
 		
+		//if left is smaller than the index value
 		if(left < index -1)
 		{
+			//then call the sort method for left
 			QuickSort(array, left, index - 1);
+			//if right is bigger than the index value
 			if(index < right)
-			{
+			{	
+				//then we call the quickSort method from that right value
 				QuickSort(array, index, right);
 			}
 		}
@@ -36,25 +45,38 @@ public class QuickSort
 	
 	private static int partition(ArrayList<String> array, int left, int right)
 	{
+		//this string is the midpoint of the array
 		String pivot = array.get((left + right) / 2);
 		
+		//while the left value is less than the right value
 		while(left<= right)
 		{
+			//while the left value is lower than the pivot point
+			//increment the left value
 			while(array.get(left).compareTo(pivot) < 0)
 			{
 				left++;
 			}
+			//while the right value is greater than the pivot point
+			//decrement the right value
 			while(array.get(right).compareTo(pivot) > 0)
 			{
 				right--;
 			}
 			
+			//if the left is less than the right
 			if(left <= right)
 			{
+				//the value will be swapped
+				//the value first gets stored in a temp variable
 				String temp = array.get(left);
+				//set left string equal to the right string
 				array.set(left, array.get(right));
+				//and lastly make temps new value, the right string
 				array.set(right, temp);
 				
+				//after moving on we move forward with the left
+				//and move closer with the right
 				left++;
 				right--;
 			}

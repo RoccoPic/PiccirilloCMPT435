@@ -2,8 +2,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.function.UnaryOperator;
 
-public class InsertionSort {
+public class InsertionSort 
+{
 
 	public static void main(String[] args) throws FileNotFoundException 
 	{
@@ -18,9 +20,13 @@ public class InsertionSort {
 				wordList.add(scanner.nextLine());
 			}
 			
+			//sets all strings in wordList to upperCase
+			UnaryOperator<String> upper = (x) -> x.toUpperCase();
+			wordList.replaceAll(upper);
+			
 			sort(wordList);
 			printArray(wordList);
-}
+	}
 	public static ArrayList<String> sort(ArrayList<String> A)
 	{
 		//created an int to store number of swaps
@@ -50,7 +56,7 @@ public class InsertionSort {
 			//so since we changed, the key now moves to the next string
 			A.set(j+1, key);
 		}
-		System.out.println(numSwap);
+		System.out.println(numSwap + " comparisons performed.");
 		return A;
 	}
 
