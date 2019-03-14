@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.function.UnaryOperator;
 public class QuickSort 
 {
+	public static int compare = 0;
 	public static void main(String[] args) throws FileNotFoundException 
 	{
 	//the scanner is storing the magicitems.txt file temporarily
@@ -23,6 +24,7 @@ public class QuickSort
 			
 			QuickSort(wordList, 0, wordList.size() - 1);
 			printArray(wordList);
+			System.out.print(compare + " is the number of comparisons.");
 	}
 	
 	private static void QuickSort(ArrayList<String> array, int left, int right)
@@ -51,22 +53,26 @@ public class QuickSort
 		//while the left value is less than the right value
 		while(left<= right)
 		{
+			compare++;
 			//while the left value is lower than the pivot point
 			//increment the left value
 			while(array.get(left).compareTo(pivot) < 0)
 			{
+				compare++;
 				left++;
 			}
 			//while the right value is greater than the pivot point
 			//decrement the right value
 			while(array.get(right).compareTo(pivot) > 0)
 			{
+				compare++;
 				right--;
 			}
 			
 			//if the left is less than the right
 			if(left <= right)
 			{
+				compare++;
 				//the value will be swapped
 				//the value first gets stored in a temp variable
 				String temp = array.get(left);

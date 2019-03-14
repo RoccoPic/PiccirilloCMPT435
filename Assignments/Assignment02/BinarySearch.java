@@ -6,6 +6,7 @@ import java.util.function.UnaryOperator;
 
 public class BinarySearch 
 {
+	
 	public static void main(String[] args) throws FileNotFoundException 
 	{
 		//the scanner is storing the magicitems.txt file temporarily
@@ -54,6 +55,7 @@ public class BinarySearch
 		//end up incrementing it as we continue
 		int index = 0;
 		
+		
 		//while the counter has not yet reached 42 comparisons yet
 		while(counter < 42)
 		{
@@ -74,10 +76,13 @@ public class BinarySearch
 			counter++;
 			
 		}
+		
+	
 	}
 		//our binarySearch method
 		public static boolean binSearch(ArrayList<String> A, String target, ArrayList<Integer> compare)
 		{
+			int numSwap = 0;
 			//start is at the beginning of the array being called
 			int start = 0;
 			//stop is at the end of the arrayList 
@@ -87,23 +92,27 @@ public class BinarySearch
 			//while the start is less than or equal we stay in our loop
 			while(start <= stop)
 			{
+				//numSwap++;
 				//if A is before the target alphabetically
 				//we move the start up 1
 				if(A.get(midpoint).compareTo(target) < 0)
 				{
+					numSwap++;
 					start = midpoint + 1;
 				}
 				//if the arrays string equals our target string
 				else if(A.get(midpoint).equals(target))
 				{
+					numSwap++;
 					midpoint++;
 					//we print out the number of comparisons it took to be found
-					System.out.println((midpoint) + " comparisons");
-					compare.add(midpoint);
+					System.out.println((numSwap) + " comparisons");
+					compare.add(numSwap);
 					//this lets us exit the method since our target was found
 					return true;
-				}else
+				}else	
 				{	//if midpoint is greater than the target point
+					numSwap++;
 					stop = midpoint -1;
 				}
 				//midpoint gets reset back
@@ -138,7 +147,7 @@ public class BinarySearch
 			//so since we changed, the key now moves to the next string
 			A.set(j+1, key);
 		}
-		//System.out.println(numSwap);
+		
 		return A;
 	}
 	

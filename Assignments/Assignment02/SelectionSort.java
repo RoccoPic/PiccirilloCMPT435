@@ -37,13 +37,14 @@ public class SelectionSort {
 		//loops over the arrayList
 		for(int i = 0; i < A.size()-1; i++)
 		{
+			numSwap++;
 			//sets smallPos as i or the initial index 
 			int smallPos = i;
 			
 			//loop over each string in the arrayList
 			for(int j = i+1; j < A.size(); j++)
 			{
-				
+				numSwap++;
 				//compare to returns a positive num or negative num
 				//if j is less than smallPos, a negative number prints
 				//if j is greater than smallPos, a positive number prints
@@ -65,6 +66,7 @@ public class SelectionSort {
 			
 			//and then i gets set to temp
 			A.set(i, temp);
+			
 		}
 		
 		System.out.println(numSwap);

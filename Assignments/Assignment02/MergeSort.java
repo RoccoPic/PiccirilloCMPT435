@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.function.UnaryOperator;
 
 public class MergeSort {
+	public static int compare = 0;
 	public static void main(String[] args) throws FileNotFoundException 
 	{
 	//the scanner is storing the magicitems.txt file temporarily
@@ -24,6 +25,7 @@ public class MergeSort {
 			
 			wordList = mergeSort(wordList);
 			printArray(wordList);
+			System.out.print(compare + " is the number of comparisons");
 }
 	
 	public static ArrayList<String> mergeSort(ArrayList<String> A)
@@ -76,8 +78,7 @@ public class MergeSort {
 	
 	public static ArrayList<String> merge(ArrayList<String> left, ArrayList<String> right)
 	{
-		//created an int to store number of swaps
-		int numSwap = 0;
+	
 		//this is the merged arrayList containing the elements
 		//of both the arrays
 		ArrayList<String> result = new ArrayList<String>();
@@ -88,16 +89,18 @@ public class MergeSort {
 		//while elements are still in the left or in the right
 		while(indexL < left.size() || indexR < right.size())
 		{
+			compare++;
 			//if the left AND the right still have elements
 			//they need to be merged in the right order
 			if(indexL < left.size() && indexR < right.size())
 			{
+				compare++;
 				//depending on which is larger we need to know
 				//which to add first
 				//if the left is smaller than the right
 				if(left.get(indexL).compareTo(right.get(indexR)) < 0)
 						{
-							numSwap++;
+							compare++;
 							//we add left first if it is smaller
 							result.add(left.get(indexL));
 							//we need to also update the index 
@@ -106,7 +109,7 @@ public class MergeSort {
 				//if the right is bigger, we add the right after
 				else //if (right.get(indexR).compareTo(left.get(indexL)) > 0)	
 				{
-					numSwap++;
+					compare++;
 					result.add(right.get(indexR));
 					indexR++;
 				}
@@ -115,31 +118,20 @@ public class MergeSort {
 			//but not the right
 			else if (indexL < left.size())
 			{
-				numSwap++;
+				compare++;
 				result.add(left.get(indexL));
 				indexL++;
 			//or, if the left is the empty but the right isn't
 			//the right needs to be added
 			} else if (indexR < right.size())
 			{
-				numSwap++;
+				compare++;
 				result.add(right.get(indexR));
 				indexR++;	
 			}
 		}
 		
-		ArrayList<Integer> comparisons = new ArrayList<Integer>();
-		comparisons.add(numSwap);
-		if(result.size() == 666)
-		{
-			int sum = 0;
-			for (int i = 0; i < comparisons.size(); i++)
-			{
-				
-	            sum += comparisons.get(i);
-			}
-			System.out.print(sum);
-		}
+		
 		return result;
 	}
 	
