@@ -101,6 +101,6 @@ public class QuickSort
 		{
 			System.out.println(wordList.get(i));
 		}
-}
+	}
 
 }

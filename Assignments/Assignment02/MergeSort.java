@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.function.UnaryOperator;
 
-public class MergeSort {
+public class MergeSort 
+{
 	public static int compare = 0;
 	public static void main(String[] args) throws FileNotFoundException 
 	{
-	//the scanner is storing the magicitems.txt file temporarily
+			//the scanner is storing the magicitems.txt file temporarily
 			Scanner scanner = new Scanner(new File("magicitems"));
 			//made to actually store the magic items
 			ArrayList<String> wordList = new ArrayList<String>();
@@ -29,7 +30,7 @@ public class MergeSort {
 			wordList = mergeSort(wordList);
 			printArray(wordList);
 			System.out.print(compare + " is the number of comparisons");
-}
+	}
 	
 	public static ArrayList<String> mergeSort(ArrayList<String> A)
 	{

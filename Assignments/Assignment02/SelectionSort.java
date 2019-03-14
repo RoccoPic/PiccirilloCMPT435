@@ -77,14 +77,14 @@ public class SelectionSort {
 		
 	}
 
-//this makes an easily accessible printing method for the wordList
-public static void printArray(ArrayList<String> wordList)
-{
-	for(int i = 0; i < wordList.size(); i++)
+	//this makes an easily accessible printing method for the wordList
+	public static void printArray(ArrayList<String> wordList)
 	{
-		System.out.println(wordList.get(i));
+		for(int i = 0; i < wordList.size(); i++)
+		{
+			System.out.println(wordList.get(i));
+		}
 	}
-}
 }
 
 
