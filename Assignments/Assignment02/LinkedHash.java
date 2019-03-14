@@ -1,3 +1,6 @@
+//Assignment02
+//Rocco Piccirillo
+//LinkedHash
 
 //creates my key, value, and next
 public class LinkedHash

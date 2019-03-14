@@ -1,3 +1,6 @@
+//Assignment02
+//Rocco Piccirillo
+//LinearSearch
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -81,6 +84,8 @@ public class LinearSearch
 			//if not found, we move to the next word in the sorted wordList
 			} else
 			{
+				//if we don't find it at the given position, 
+				//we increment to the next index
 				pos++;
 				
 			}

@@ -1,3 +1,6 @@
+//Assignment02
+//Rocco Piccirillo
+//BinarySearch
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -32,7 +35,7 @@ public class BinarySearch
 			{
 				//a random Index of wordList will be selected
 			    int randIndex = (int) (Math.random()*(wordList.size()-1));
-			    //if 
+			    
 			    if (randList.indexOf(randIndex) == -1) 
 			    {
 			    	//the randList adds the random indexed number to the List

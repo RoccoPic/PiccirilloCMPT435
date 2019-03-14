@@ -1,3 +1,6 @@
+//Assignment02
+//Rocco Piccirillo
+//LinkedHashTable
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -44,7 +47,7 @@ public class LinkedHashTable
 		{
 			//a random Index of wordList will be selected
 		    int randIndex = (int) (Math.random()*(wordList.size()-1));
-		    //if 
+		    
 		    if (randList.indexOf(randIndex) == -1) 
 		    {
 		    	//the randList adds the random indexed number to the List
@@ -88,7 +91,7 @@ public class LinkedHashTable
 		
     }
     
- // Function that return average of an array. 
+    //Function that return average of an array. 
     public static double average(ArrayList<Integer> averageArray, int size) 
     { 
           

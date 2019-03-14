@@ -1,3 +1,6 @@
+//Assignment02
+//Rocco Piccirillo
+//MergeSort
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
