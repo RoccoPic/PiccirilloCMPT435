@@ -9,6 +9,9 @@ public class Node {
 	
 	//this is the pointer for the next node
 	public Node next;
+
+	
+	
 	
 	
 }
