@@ -9,10 +9,10 @@ public class BinaryTree
 	//sets an initial root
 	BinaryNode root;
 
-	public void addNode(int key, String name) 
+	public void addNode(/*int key,*/ String name) 
 	{
 		//creates a new BinaryNode and sets it up
-		BinaryNode newNode = new BinaryNode(key, name);
+		BinaryNode newNode = new BinaryNode(/*key,*/ name);
 		
 		//if there is no existing root, the first added becomes the root
 		if (root == null) 
@@ -35,7 +35,7 @@ public class BinaryTree
 			//depending on if the key is less than the focused node
 			//we decide to move left or right
 			//this key is less than the current Node so we move to the left
-				if(key < focusNode.key) 
+				if(name.compareTo(focusNode.name) < 0) 
 				{
 					//we then switch our focus on the left child
 					focusNode = focusNode.leftChild;
@@ -50,7 +50,7 @@ public class BinaryTree
 					}
 
 					//this key is greater than the current Node so we move to the right
-				} else if(key > focusNode.key)
+				} else if(name.compareTo(focusNode.name) > 0)
 				{ 
 					//we move our focus to the rightmost child
 					focusNode = focusNode.rightChild;
@@ -86,22 +86,22 @@ public class BinaryTree
 	}
 
 	//finds a specific node depending on the key given
-	public BinaryNode findNode(int key) 
+	public BinaryNode findNode(String name) 
 	{
 		//we begin at the top of the tree
 		BinaryNode focusNode = root;
 
 		//while the focused key has not been found
-		while (focusNode.key != key) 
+		while (focusNode.name != name) 
 		{
 			//if the key is less than we move down to the left
-			if (key < focusNode.key) 
+			if (name.compareTo(focusNode.name) < 0) 
 			{
 				//we move our focus towards the left child
 				focusNode = focusNode.leftChild;
 
 			//if the key is greater than we move down to the right
-			} else if (key > focusNode.key)
+			} else if (name.compareTo(focusNode.name) > 0)
 			{
 				//we move our focus over to the rightmost child
 				focusNode = focusNode.rightChild;
@@ -116,7 +116,7 @@ public class BinaryTree
 	}
 
 	//finds how many searches it takes to get to the current node
-	public int findNodeCounter(int key) 
+	public int findNodeCounter(String name) 
 	{
 		//sets a counter value that we return once found
 		int counter = 0;
@@ -125,17 +125,17 @@ public class BinaryTree
 		BinaryNode focusNode = root;
 		
 		//since the key hasn't been found yet, we keep looking
-		while (focusNode.key != key) 
+		while (focusNode.name != name) 
 		{
 			//if the key is less we look left
-			if (key < focusNode.key) 
+			if (name.compareTo(focusNode.name) < 0) 
 			{
 			//since we're doing a compare we increase the counter
 			counter++;
 			//we begin to move lower left
 			focusNode = focusNode.leftChild;
 
-			} else 
+			} else if (name.compareTo(focusNode.name) > 0)
 			{
 			//since we're doing a compare we increase the counter
 			counter++;
@@ -175,8 +175,10 @@ public class BinaryTree
 		//adds all strings from the wordList to the binary tree with their own indexes
 		 for(int i = 0; i < wordList.size(); i++)
 		 {
-			 theTree.addNode(i, wordList.get(i));			
+			 theTree.addNode(wordList.get(i));			
 		 }
+		 
+		 ArrayList<Integer> comparisons = new ArrayList<Integer>();
 		 
 			//while the size of the randList is less than 42
 			while (randList.size() < 42) 
@@ -188,10 +190,31 @@ public class BinaryTree
 			    {
 			    	//adds to the randList so that we eventually get to size 
 			       randList.add(wordList.get(randIndex));
-			    	System.out.println(wordList.get(randIndex) + " was found after " + theTree.findNodeCounter(randIndex) + " comparisons");
+			    	System.out.println(wordList.get(randIndex) + " was found after " + theTree.findNodeCounter(wordList.get(randIndex)) + " comparisons");
+			    	comparisons.add(theTree.findNodeCounter(wordList.get(randIndex)));
 			    }
 			}
 			
+			System.out.print("The average amount of comparisons are " + average(comparisons, comparisons.size()));
+			
 	}
+	 
+	// Function that return average of an array. 
+    public static double average(ArrayList<Integer> averageArray, int size) 
+    { 
+          
+        // Find sum of array element 
+        int sum = 0;
+        
+        //for the the size of  
+        for (int i = 0; i < size; i++) 
+        {
+        	//we will be adding our newest found item 
+        	//to our total sum at the time
+            sum += averageArray.get(i); 
+        }
+        //returns our average aka our sum of ints / our arraySize
+        return sum / size; 
+    } 
 
 }
