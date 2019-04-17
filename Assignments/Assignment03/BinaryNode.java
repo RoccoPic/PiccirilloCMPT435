@@ -1,4 +1,6 @@
-
+////Assignment03
+//Rocco Piccirillo
+//BinaryNode
 public class BinaryNode 
 {
 	//public int key;

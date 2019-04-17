@@ -1,3 +1,6 @@
+////Assignment03
+//Rocco Piccirillo
+//AdjacencyList
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -7,7 +10,7 @@ public class AdjacencyList
 {
 	public static void main(String[] args) throws FileNotFoundException
 	{
-		ArrayList<LinkedList> linkedGraphs = new ArrayList<LinkedList>();
+		ArrayList<LinkedListGraph> linkedGraphs = new ArrayList<LinkedListGraph>();
 		
 		//this is how we are accessing our graphs text file
 		Scanner scanner = new Scanner(new File("graphs"));
@@ -29,17 +32,17 @@ public class AdjacencyList
 					printList(linkedGraphs);
 					System.out.println();
 					//creates a new ArrayList to our multiple linked lists
-					linkedGraphs = new ArrayList<LinkedList>();
+					linkedGraphs = new ArrayList<LinkedListGraph>();
 					//this is done so we can begin with a vertex of zero
 					//not all graphs include this but I was getting errors 
 					//starting the last graph without it
-					linkedGraphs.add(new LinkedList());
+					linkedGraphs.add(new LinkedListGraph());
 					
 				//once we hit a vertex we create a new linked List
 				} else if(currentLine.contains("add vertex"))
 				{
 					//starts at index 1 since we already added in an initial List
-					linkedGraphs.add(1, new LinkedList());
+					linkedGraphs.add(1, new LinkedListGraph());
 				
 				//once we hit an edge we start building our lists
 				} else if(currentLine.contains("add edge"))
@@ -114,18 +117,19 @@ public class AdjacencyList
 		
 	}
 	
-			//provides a clean method to print our LinkedList
-			public static void printList(ArrayList<LinkedList> currList)
+			//provides a clean method to print our LinkedListGraph
+			public static void printList(ArrayList<LinkedListGraph> currList)
 			{
 				for(int i = 0; i < currList.size(); i++)
 				{
 					//prints the current indexes linked list components
+					System.out.print(i + " ");
 					currList.get(i).show();
 					//once we are done we print out this | 
 					//all graphs start with one bc we are not 
 					//using the index 0 for most
 					//also their are blank spots bc some points don't connect
-					System.out.print(" |");
+					System.out.print(" :");
 				}
 			}
 	

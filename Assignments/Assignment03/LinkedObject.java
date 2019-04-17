@@ -1,3 +1,6 @@
+////Assignment03
+//Rocco Piccirillo
+//LinkedObject
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -39,7 +42,8 @@ public class LinkedObject
 				} else if(currentLine.contains("add vertex"))
 				{
 					//starts at index 1 since we already added in an initial List
-					if(currentLine.length() == 12) {
+					if(currentLine.length() == 12) 
+					{
 					char pointOne = currentLine.charAt(currentLine.length()-1);
 					int pOne = Character.getNumericValue(pointOne);
 					Vertex newVertex = new Vertex();

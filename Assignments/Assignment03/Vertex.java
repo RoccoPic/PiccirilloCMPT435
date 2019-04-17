@@ -1,8 +1,8 @@
-import java.util.ArrayList;
-
-//Assignment03
+////Assignment03
 //Rocco Piccirillo
 //Vertex
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vertex {
 	
@@ -13,8 +13,6 @@ public class Vertex {
 	//public LinkedList connected = new LinkedList();
 	public ArrayList<Integer> vertexes = new ArrayList<Integer>();
 
-	
-	
 	
 	
 }

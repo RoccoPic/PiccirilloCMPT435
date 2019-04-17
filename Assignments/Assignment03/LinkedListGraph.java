@@ -1,10 +1,9 @@
 //Assignment03
 //Rocco Piccirillo
-//LinkedList
+//LinkedListGraph
 
-public class LinkedList 
+public class LinkedListGraph
 {
-	
 	Node head; //refers to the first node
 	
 	//want to assign this data to a node
