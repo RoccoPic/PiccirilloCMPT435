@@ -1,4 +1,8 @@
- //sets up a weighted edge
+//Rocco Piccirillo
+//Assignment04
+//Edge
+
+//sets up a weighted edge
     public class Edge 
     { 
     	//our starting point
